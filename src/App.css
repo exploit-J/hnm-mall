@@ -1,38 +1,418 @@
-.App {
-  text-align: center;
-}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #3f4150; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+a,
+a:hover {
+  text-decoration: none;
+  color: #3f4150; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border: none; }
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: none; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ul,
+ol,
+li {
+  padding-left: 0;
+  list-style: none; }
+
+.top-button {
+  position: fixed;
+  bottom: -100px;
+  right: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #22c58b;
+  border-radius: 50%;
+  transition: 0.5s;
+  visibility: hidden;
+  cursor: pointer; }
+  .top-button.active {
+    bottom: 20px;
+    visibility: visible; }
 
-.App-link {
-  color: #61dafb;
-}
+.nav-fix {
+  position: relative;
+  height: 13vh;
+  background-color: #ffffff; }
+  .nav-fix .nav-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 13vh;
+    background-color: #ffffff;
+    z-index: 10; }
+    .nav-fix .nav-container .nav-top {
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      max-width: 1320px;
+      margin-top: 20px; }
+      .nav-fix .nav-container .nav-top .login-check {
+        margin-right: 15px;
+        cursor: pointer;
+        transition: 0.5s; }
+        .nav-fix .nav-container .nav-top .login-check:hover {
+          opacity: 0.5; }
+      .nav-fix .nav-container .nav-top .logout-check {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-right: 15px; }
+        .nav-fix .nav-container .nav-top .logout-check svg {
+          margin-right: 8px; }
+        .nav-fix .nav-container .nav-top .logout-check .comment {
+          margin-right: 8px; }
+        .nav-fix .nav-container .nav-top .logout-check .logout-button {
+          font-size: 12px;
+          cursor: pointer;
+          transition: 0.3s; }
+          .nav-fix .nav-container .nav-top .logout-check .logout-button:hover {
+            opacity: 0.5; }
+    .nav-fix .nav-container .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px; }
+      .nav-fix .nav-container .logo .sidebar {
+        display: none; }
+      .nav-fix .nav-container .logo img {
+        width: 120px;
+        cursor: pointer; }
+    .nav-fix .nav-container .gnb-large {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 40px;
+      max-width: 1320px; }
+      .nav-fix .nav-container .gnb-large .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        padding-left: 0;
+        margin: 0; }
+        .nav-fix .nav-container .gnb-large .menu li {
+          margin: 0 8px;
+          padding: 8px;
+          cursor: pointer;
+          transition: 0.3s; }
+          .nav-fix .nav-container .gnb-large .menu li:hover {
+            opacity: 0.5; }
+      .nav-fix .nav-container .gnb-large .search {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        width: 130px;
+        height: 35px;
+        margin-right: 15px;
+        border-bottom: 1px solid #e0e2e7; }
+        @media screen and (min-width: 1120px) {
+          .nav-fix .nav-container .gnb-large .search {
+            width: 210px; } }
+        .nav-fix .nav-container .gnb-large .search svg {
+          margin-right: 8px;
+          cursor: pointer;
+          transition: 0.3s; }
+          .nav-fix .nav-container .gnb-large .search svg:hover {
+            opacity: 0.5; }
+    .nav-fix .nav-container .gnb-small {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(-100%);
+      transition: 0.5s;
+      z-index: 20; }
+      .nav-fix .nav-container .gnb-small.active {
+        transform: translateX(0); }
+      .nav-fix .nav-container .gnb-small .menu {
+        position: relative;
+        height: 100vh;
+        padding-top: 50px;
+        background-color: #f7f8fa; }
+        .nav-fix .nav-container .gnb-small .menu li {
+          width: 50%;
+          margin-bottom: 20px;
+          padding: 10px;
+          cursor: pointer; }
+      .nav-fix .nav-container .gnb-small .close-button {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 24px;
+        cursor: pointer; }
+    .nav-fix .nav-container .search-small {
+      display: none; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@media screen and (max-width: 991px) {
+  .nav-fix {
+    height: 5vh; }
+    .nav-fix .nav-container {
+      height: 5vh; }
+      .nav-fix .nav-container .gnb-large {
+        display: none; }
+      .nav-fix .nav-container .logo {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 20px;
+        left: 15px; }
+        .nav-fix .nav-container .logo .sidebar {
+          display: block;
+          width: 35px;
+          height: 25px;
+          margin-right: 10px;
+          cursor: pointer; }
+        .nav-fix .nav-container .logo img {
+          width: 43px;
+          height: 30px; }
+      .nav-fix .nav-container .search-small {
+        display: block;
+        position: absolute;
+        top: 24px;
+        left: 120px;
+        display: flex;
+        align-items: center;
+        width: 210px;
+        height: 24px;
+        margin-right: 15px;
+        border-bottom: 1px solid #e0e2e7; }
+        .nav-fix .nav-container .search-small svg {
+          margin-right: 8px;
+          cursor: pointer; } }
+
+.card-container {
+  margin: 35px 0;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: 0.5s; }
+  .card-container:hover {
+    transform: scale(1.1); }
+  .card-container .md-pick {
+    color: #3da5f5; }
+  .card-container .new-item {
+    font-weight: 500;
+    animation: new-item-color 1s infinite; }
+
+@keyframes new-item-color {
+  0% {
+    color: #191a20; }
+  50% {
+    color: #f86d7d; }
+  100% {
+    color: #191a20; } }
+
+.detail {
+  margin-top: 35px; }
+  .detail .detail-wrap {
+    display: flex;
+    justify-content: center; }
+    .detail .detail-wrap .img {
+      display: flex;
+      justify-content: end; }
+  .detail .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .detail .desc .product {
+      font-size: 20px;
+      margin-bottom: 10px; }
+      .detail .desc .product .info-wrap {
+        margin-bottom: 20px; }
+        .detail .desc .product .info-wrap .md-pick {
+          margin-bottom: 10px;
+          color: #3da5f5;
+          font-size: 24px;
+          font-weight: 600; }
+        .detail .desc .product .info-wrap p:nth-child(2) {
+          margin: 0; }
+        .detail .desc .product .info-wrap .new-item {
+          font-weight: 500;
+          font-size: 18px;
+          animation: new-item-color 1s infinite; }
+        .detail .desc .product .info-wrap .md-pick {
+          margin-bottom: 10px;
+          color: #3da5f5;
+          font-size: 24px;
+          font-weight: 600; }
+        .detail .desc .product .info-wrap p:nth-child(2) {
+          margin: 0; }
+        .detail .desc .product .info-wrap .new-item {
+          font-weight: 500;
+          font-size: 18px;
+          animation: new-item-color 1s infinite; }
+    .detail .desc .select-menu select {
+      width: 150px;
+      margin-right: 8px;
+      text-align: center;
+      border: 1px solid #e0e2e7; }
+    .detail .desc .select-menu button {
+      height: 28px;
+      padding: 0 8px;
+      border: 1px solid #e0e2e7;
+      transition: 0.5s; }
+      .detail .desc .select-menu button:hover {
+        opacity: 0.5; }
+
+@media screen and (max-width: 991px) {
+  .detail {
+    margin-top: 15px; }
+    .detail .detail-wrap .img {
+      justify-content: center; }
+    .detail .desc {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px; }
+      .detail .desc .product {
+        font-size: 16px;
+        margin-bottom: 10px; }
+        .detail .desc .product .info-wrap .md-pick {
+          display: inline;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          color: #3da5f5;
+          font-size: 20px;
+          font-weight: 600; }
+        .detail .desc .product .info-wrap p:nth-child(2) {
+          margin: 0; }
+        .detail .desc .product .info-wrap .new-item {
+          display: inline;
+          font-weight: 500;
+          animation: new-item-color 1s infinite; }
+      .detail .desc .title-wrap {
+        display: flex;
+        justify-content: space-between; }
+        .detail .desc .title-wrap .title {
+          margin-right: 50px; }
+      .detail .desc .select-menu {
+        display: flex;
+        justify-content: space-between; }
+        .detail .desc .select-menu select,
+        .detail .desc .select-menu button {
+          width: 50%; } }
+
+@keyframes new-item-color {
+  0% {
+    color: #191a20; }
+  50% {
+    color: #f86d7d; }
+  100% {
+    color: #191a20; } }
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 30px;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #e0e2e7;
+  border-radius: 10px; }
+  .login-container a,
+  .login-container a:hover {
+    text-decoration: none;
+    color: #3f4150; }
+  .login-container h1 {
+    text-align: center;
+    border-bottom: 1px solid #e0e2e7;
+    padding: 8px;
+    transition: 0.5s;
+    cursor: pointer; }
+    .login-container h1:hover {
+      opacity: 0.5; }
+  .login-container form .text-field {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #e0e2e7; }
+    .login-container form .text-field input {
+      width: 100%;
+      height: 40px;
+      font-size: 16px; }
+      .login-container form .text-field input:focus ~ span::before,
+      .login-container form .text-field input:valid ~ span::before {
+        width: 100%; }
+      .login-container form .text-field input:focus ~ label,
+      .login-container form .text-field input:valid ~ label {
+        top: -5px;
+        color: #f86d7d; }
+    .login-container form .text-field label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #b2b3b9;
+      pointer-events: none;
+      transition: 0.3s; }
+    .login-container form .text-field span::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #f86d7d;
+      transition: 0.3s; }
+  .login-container .pass {
+    margin-bottom: 5px; }
+    .login-container .pass:hover {
+      text-decoration: underline; }
+  .login-container input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background-color: #f86d7d;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #f7f8fa;
+    transition: 0.5s; }
+    .login-container input[type="submit"]:hover {
+      border-color: #f86d7d; }
+  .login-container ul {
+    display: flex;
+    justify-content: center;
+    padding-left: 0; }
+    .login-container ul li {
+      margin-top: 20px;
+      transition: 0.5s; }
+      .login-container ul li:hover {
+        opacity: 0.5; }
+      .login-container ul li::after {
+        content: "|";
+        margin: 0 8px 0 8px; }
+      .login-container ul li:last-child::after {
+        content: "";
+        margin-right: 0; }
+
+@media screen and (max-width: 991px) {
+  .login-container {
+    width: 300px; }
+    .login-container ul {
+      font-size: 14px; }
+      .login-container ul li::after {
+        margin: 0 5px 0 5px; } }
+
+/*# sourceMappingURL=App.css.map */

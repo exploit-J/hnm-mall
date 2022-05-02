@@ -1,0 +1,146 @@
+.detail {
+  margin-top: 35px;
+
+  .detail-wrap {
+    display: flex;
+    justify-content: center;
+
+    .img {
+      display: flex;
+      justify-content: end;
+    }
+  }
+  .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .product {
+      font-size: 20px;
+      margin-bottom: 10px;
+
+      .info-wrap {
+        margin-bottom: 20px;
+        .md-pick {
+          margin-bottom: 10px;
+          color: $blue;
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        p:nth-child(2) {
+          margin: 0;
+        }
+        .new-item {
+          font-weight: 500;
+          font-size: 18px;
+          animation: new-item-color 1s infinite;
+        }
+        .md-pick {
+          margin-bottom: 10px;
+          color: $blue;
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        p:nth-child(2) {
+          margin: 0;
+        }
+        .new-item {
+          font-weight: 500;
+          font-size: 18px;
+          animation: new-item-color 1s infinite;
+        }
+      }
+    }
+    .select-menu {
+      select {
+        width: 150px;
+        margin-right: 8px;
+        text-align: center;
+        border: 1px solid $border;
+      }
+      button {
+        height: 28px;
+        padding: 0 8px;
+        border: 1px solid $border;
+        transition: 0.5s;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .detail {
+    margin-top: 15px;
+
+    .detail-wrap {
+      .img {
+        justify-content: center;
+      }
+    }
+    .desc {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+
+      .product {
+        font-size: 16px;
+        margin-bottom: 10px;
+        .info-wrap {
+          .md-pick {
+            display: inline;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            color: $blue;
+            font-size: 20px;
+            font-weight: 600;
+          }
+
+          p:nth-child(2) {
+            margin: 0;
+          }
+          .new-item {
+            display: inline;
+            font-weight: 500;
+            animation: new-item-color 1s infinite;
+          }
+        }
+      }
+
+      .title-wrap {
+        display: flex;
+        justify-content: space-between;
+        .title {
+          margin-right: 50px;
+        }
+      }
+      .select-menu {
+        display: flex;
+        justify-content: space-between;
+
+        select,
+        button {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes new-item-color {
+  0% {
+    color: $dark;
+  }
+
+  50% {
+    color: $red;
+  }
+
+  100% {
+    color: $dark;
+  }
+}

@@ -1,0 +1,20 @@
+.top-button {
+  position: fixed;
+  bottom: -100px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: $green;
+  border-radius: 50%;
+  transition: 0.5s;
+  visibility: hidden;
+  cursor: pointer;
+
+  &.active {
+    bottom: 20px;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,33 @@
+.card-container {
+  margin: 35px 0;
+  background-color: $white;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .md-pick {
+    color: $blue;
+  }
+
+  .new-item {
+    font-weight: 500;
+    animation: new-item-color 1s infinite;
+  }
+}
+
+@keyframes new-item-color {
+  0% {
+    color: $dark;
+  }
+
+  50% {
+    color: $red;
+  }
+
+  100% {
+    color: $dark;
+  }
+}
