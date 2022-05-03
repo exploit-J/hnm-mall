@@ -218,6 +218,10 @@ li {
     font-weight: 500;
     animation: new-item-color 1s infinite; }
 
+@media screen and (max-width: 767px) {
+  .card-container:hover {
+    transform: scale(1); } }
+
 @keyframes new-item-color {
   0% {
     color: #191a20; }

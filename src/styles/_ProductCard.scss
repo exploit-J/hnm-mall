@@ -18,11 +18,13 @@
   }
 }
 
-// @media screen and (max-width: 991px) {
-//   .card-container {
-//     margin-top: 10px;
-//   }
-// }
+@media screen and (max-width: 767px) {
+  .card-container {
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
 
 @keyframes new-item-color {
   0% {
