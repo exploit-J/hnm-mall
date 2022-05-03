@@ -166,9 +166,9 @@ li {
 
 @media screen and (max-width: 991px) {
   .nav-fix {
-    height: 8vh; }
+    height: 12vh; }
     .nav-fix .nav-container {
-      height: 8vh; }
+      height: 12vh; }
       .nav-fix .nav-container .gnb-large {
         display: none; }
       .nav-fix .nav-container .logo {
@@ -177,7 +177,8 @@ li {
         justify-content: center;
         align-items: center;
         top: 20px;
-        left: 15px; }
+        left: 15px;
+        margin-bottom: 0; }
         .nav-fix .nav-container .logo .sidebar {
           display: block;
           width: 35px;

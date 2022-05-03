@@ -23,7 +23,6 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
       navigate(`/?q=${keyword}`);
     }
   };
-  const sideMenu = document.querySelector(".gnb-small");
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   return (
@@ -92,7 +91,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
         </div>
         <div className="search-small">
           <FontAwesomeIcon icon={faSearch} />
-          <input type="text" maxLength={12} />
+          <input type="text" maxLength={12} onKeyUp={(e) => search(e)} />
         </div>
       </div>
     </div>
