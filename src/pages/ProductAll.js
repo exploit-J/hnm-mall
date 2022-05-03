@@ -38,9 +38,6 @@ const ProductAll = () => {
       window.addEventListener("scroll", topButtonActive);
     };
     watch();
-    return () => {
-      window.removeEventListener("scroll", topButtonActive);
-    };
   }, []);
 
   return (
