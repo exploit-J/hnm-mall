@@ -18,15 +18,30 @@ const ProductAll = () => {
     getProducts();
   }, [query]);
 
-  const topButton = document.querySelector(".top-button");
+  // const topButton = document.querySelector(".top-button");
+  // const topButtonActive = () => {
+  //   if (window.scrollY > 600) {
+  //     topButton.classList.add("active");
+  //   } else {
+  //     topButton.classList.remove("active");
+  //   }
+  // };
+  // window.addEventListener("scroll", topButtonActive);
+
+  const [topbutton, setTopbutton] = useState(false);
   const topButtonActive = () => {
-    if (window.scrollY > 600) {
-      topButton.classList.add("active");
-    } else {
-      topButton.classList.remove("active");
-    }
+    window.scrollY > 600 ? setTopbutton(true) : setTopbutton(false);
   };
-  window.addEventListener("scroll", topButtonActive);
+
+  useEffect(() => {
+    const watch = () => {
+      window.addEventListener("scroll", topButtonActive);
+    };
+    watch();
+    return () => {
+      window.removeEventListener("scroll", topButtonActive);
+    };
+  }, []);
 
   return (
     <div>
@@ -39,7 +54,7 @@ const ProductAll = () => {
           ))}
         </Row>
         <div
-          className="top-button"
+          className={topbutton ? "top-button active" : "top-button"}
           onClick={() => {
             window.scrollTo({
               top: 0,
