@@ -52,7 +52,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
           <FontAwesomeIcon
             className="sidebar"
             onClick={() => {
-              showSidebar(true);
+              showSidebar();
             }}
             icon={faBars}
           />
@@ -83,7 +83,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
             <FontAwesomeIcon
               className="close-button"
               onClick={() => {
-                setSidebar(false);
+                setSidebar();
               }}
               icon={faX}
             />
