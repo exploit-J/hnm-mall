@@ -230,7 +230,9 @@ li {
   margin-top: 35px; }
   .detail .detail-wrap {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 25px; }
     .detail .detail-wrap .img {
       display: flex;
       justify-content: end; }
@@ -283,6 +285,8 @@ li {
     margin-top: 15px; }
     .detail .detail-wrap .img {
       justify-content: center; }
+      .detail .detail-wrap .img img {
+        width: 270px; }
     .detail .desc {
       display: flex;
       justify-content: center;
@@ -329,6 +333,7 @@ li {
   left: 50%;
   padding: 30px;
   width: 400px;
+  margin-top: 25px;
   transform: translate(-50%, -50%);
   border: 1px solid #e0e2e7;
   border-radius: 10px; }
