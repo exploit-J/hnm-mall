@@ -40,7 +40,7 @@ const ProductDetail = () => {
               <select>
                 <option>사이즈</option>
                 {product?.size.length > 0 ? (
-                  product.size.map((item) => <option>{item}</option>)
+                  product.size.map((item, i) => <option key={i}>{item}</option>)
                 ) : (
                   <option>품절</option>
                 )}

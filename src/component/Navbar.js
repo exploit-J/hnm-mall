@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faSearch, faX, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +16,6 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
     "지속가능성",
   ];
 
-  const sideMenu = document.querySelector(".gnb-small");
   const navigate = useNavigate();
   const search = (e) => {
     if (e.key === "Enter") {
@@ -24,7 +23,9 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
       navigate(`/?q=${keyword}`);
     }
   };
-
+  const sideMenu = document.querySelector(".gnb-small");
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!sidebar);
   return (
     <div className="nav-fix">
       <div className="nav-container">
@@ -52,7 +53,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
           <FontAwesomeIcon
             className="sidebar"
             onClick={() => {
-              sideMenu.classList.add("active");
+              showSidebar(true);
             }}
             icon={faBars}
           />
@@ -75,7 +76,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
             <input type="text" maxLength={12} onKeyUp={(e) => search(e)} />
           </div>
         </div>
-        <div className="gnb-small">
+        <div className={sidebar ? "gnb-small active" : "gnb-small"}>
           <ul className="menu">
             {menuList.map((menu, i) => (
               <li key={i}>{menu}</li>
@@ -83,7 +84,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
             <FontAwesomeIcon
               className="close-button"
               onClick={() => {
-                sideMenu.classList.remove("active");
+                setSidebar(false);
               }}
               icon={faX}
             />
@@ -91,7 +92,7 @@ const Navbar = ({ authenticate, setAuthenticate, username }) => {
         </div>
         <div className="search-small">
           <FontAwesomeIcon icon={faSearch} />
-          <input type="text" maxLength={12} onKeyUp={(e) => search(e)} />
+          <input type="text" maxLength={12} />
         </div>
       </div>
     </div>
