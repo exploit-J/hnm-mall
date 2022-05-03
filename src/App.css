@@ -275,7 +275,8 @@ li {
       width: 150px;
       margin-right: 8px;
       text-align: center;
-      border: 1px solid #e0e2e7; }
+      border: 1px solid #e0e2e7;
+      text-align: center; }
     .detail .desc .select-menu button {
       height: 28px;
       padding: 0 8px;
