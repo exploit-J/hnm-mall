@@ -6,8 +6,11 @@ import { productAction } from "../redux/actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductAll = () => {
-  // const [productList, setProductList] = useState([]);
-  const productList = useSelector((state) => state.productList);
+  // const productList = useSelector((state) => state.productList);
+
+  // redux toolkit 버전
+  // useSelector로 state에 접근할때, state.reducer-name.state명을 써준다.
+  const productList = useSelector((state) => state.product.productList);
   const [query, setQuery] = useSearchParams();
   const dispatch = useDispatch();
 

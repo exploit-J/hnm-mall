@@ -19,16 +19,16 @@ const ProductDetail = () => {
       <Container>
         <Row className="detail-wrap">
           <Col lg={4} className="img">
-            <img src={product?.img} />
+            <img src={product?.img} alt="produc-img" />
           </Col>
           <Col lg={4} className="desc">
             <div className="product">
               <div className="info-wrap">
                 <p className="md-pick">
-                  {product?.choice == true ? "MD's pick! " : ""}
+                  {product?.choice === true ? "MD's pick! " : ""}
                 </p>
                 <p className="new-item">
-                  {product?.new == true ? "신제품!" : ""}
+                  {product?.new === true ? "신제품!" : ""}
                 </p>
               </div>
               <div className="title-wrap">
